@@ -11,13 +11,17 @@
 
 
 # Assumptions
-- Given assumptions
-    - The event can happend and not be consumed until later
+* Given assumptions
+    - The event can happen and not be consumed until later
+
+* POST
 - This service should be async between the production of an event and consumption of event
 - The events should exist for other consumers to access (in-memory in this case)
 - An event can be consumed later than created - assumes that the metrics endpoint could not always reflect the most up to date data
+- Status response of 202 since its async
 
-- GET request for last 24 hours will be in UTC as this is an internal system
+* GET 
+- Request for last 24 hours will be in UTC as this is an internal system
 
 # Shortcuts
 - Copy generic gitignore https://www.toptal.com/developers/gitignore/api/node

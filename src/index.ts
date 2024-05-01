@@ -1,12 +1,30 @@
 import express from 'express'
+import { createEvent } from './controllers/event-controller'
+import { processEvent } from './services/consumers/processEvent'
 
 const app = express()
-const port = 3008
+const PORT = 3008
 
 app.use(express.json())
+// For parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
+//HealthCheck
 app.get('/', (_, res) => {
     res.status(200).send('[Health Check] Service Running')
-} )
+})
 
-app.listen(port, () => { console.log(`Listening on port http://localhost:${port}`) })
+//POST event
+app.post('/events', (req, res) =>  createEvent(req, res))
+
+
+app.listen(PORT, () => {
+    console.log(`Listening on port http://localhost:${PORT}`)
+})
+
+//Start Up consumers
+processEvent().then(() => {
+    console.log('Consumer is running')
+  })
+  
+  
