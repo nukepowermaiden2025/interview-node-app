@@ -41,9 +41,9 @@ POST
 curl --location 'http://localhost:3008/events' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'createdAt=2024-05-01T00:15:33.008Z' \
---data-urlencode 'eventType=View Item' \
+--data-urlencode 'eventType=ViewItem' \
 --data-urlencode 'account=5f558bcb-49d3-47b1-a8e6-cb137caa3944' \
 --data-urlencode 'user=da3b08e5-337c-4236-8980-90a81086740e'
 
 GET
-curl --location 'http://localhost:3008/account/6a4c8cde-d429-4abe-879f-f7b913cd1472/event-summary'
+curl --location 'http://localhost:3008/accounts/443fd991-ff26-4d93-81e0-64bb85b440fe/event-summary'
