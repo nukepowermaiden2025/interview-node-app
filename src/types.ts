@@ -4,8 +4,8 @@ export enum EventType {
     CREATE_ITEM = 'Create Item',
     DELETE_ITEM = 'Delete Item',
     VIEW_ITEM = 'View Item'
-
 }
+
 export type CreateEvent =  {
     createdAt: string
     eventType: EventType

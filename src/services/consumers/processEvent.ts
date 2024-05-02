@@ -29,7 +29,7 @@ export async function processEvent() {
     eachMessage: async ({ message }) => {
       
       const messageValue = message.value?.toString() as string;
-      const { createdAt, eventType, account, user }: Partial<CreateEvent> & {parsedDate: number} =
+      const { createdAt, eventType, account, user }: Partial<CreateEvent> =
         JSON.parse(messageValue);
       const key = account as string;
       const parsedDate = Date.parse(createdAt as string)
@@ -38,7 +38,7 @@ export async function processEvent() {
         consumedEvents[key] = [];
       }
       
-      consumedEvents[key].push({ createdAt, parsedDate, eventType, user });
+      consumedEvents[key].push({ createdAt, parsedDate: parsedDate, eventType, user });
     },
   });
 }
