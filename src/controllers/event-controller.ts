@@ -9,3 +9,11 @@ export const createEvent = async (req: Request, res: Response) => {
   await publishEvent(event);
   res.status(202).send("Event has been recieved");
 };
+
+
+export const getMetrics = async (req: Request, res: Response) => {
+    //Get the metrics from the consumer service
+    const { accountId } = req.query
+    console.log('This is the accountId', accountId)
+    res.status(200).send({ counts: {eventTypes: {}, users: 0} })
+}

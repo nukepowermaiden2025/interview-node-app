@@ -1,5 +1,5 @@
 import express from 'express'
-import { createEvent } from './controllers/event-controller'
+import { createEvent, getMetrics} from './controllers/event-controller'
 import { processEvent } from './services/consumers/processEvent'
 
 const app = express()
@@ -15,7 +15,11 @@ app.get('/', (_, res) => {
 })
 
 //POST event
-app.post('/events', (req, res) =>  createEvent(req, res))
+app.post('/events', (req, res) => createEvent(req, res))
+
+//GET metrics
+//domain - id - subdomain
+app.get('/accounts/:accountId/event-summary', (req, res) =>  getMetrics(req, res))
 
 
 app.listen(PORT, () => {
@@ -24,7 +28,7 @@ app.listen(PORT, () => {
 
 //Start Up consumers
 processEvent().then(() => {
-    console.log('Consumer is running')
+    console.log('########## Consumer is running')
   })
   
   
