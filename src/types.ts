@@ -1,9 +1,9 @@
 export enum EventType {
-    NEW_DEVICE = 'New Device',
-    SIGN_IN = 'Sign-in',
-    CREATE_ITEM = 'Create Item',
-    DELETE_ITEM = 'Delete Item',
-    VIEW_ITEM = 'View Item'
+    NewDevice = 'NewDevice',
+    SignIn = 'SignIn',
+    CreateItem = 'CreateItem',
+    DeleteItem = 'DeleteItem',
+    ViewItem = 'ViewItem'
 }
 
 export type CreateEvent =  {

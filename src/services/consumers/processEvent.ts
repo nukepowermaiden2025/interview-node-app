@@ -99,8 +99,9 @@ function updateEventTypeCounts(current: any, results: EventsSummary) {
   const currentType = typeOptions.find(etype => {
     return etype === current.eventType;
   }) as EventType;
-
-  results['eventTypes'][currentType] += 1;
+  if (currentType) {
+    results['eventTypes'][currentType] += 1;
+  }
 }
 
 function updateUserTracker(trackedUsers: string[], current: any, results: EventsSummary) {
