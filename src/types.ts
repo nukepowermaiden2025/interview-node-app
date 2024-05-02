@@ -12,3 +12,9 @@ export type CreateEvent =  {
     account: string
     user: string
 }
+
+export type EventsSummary = {
+    eventTypes: any
+    users: number
+}
+
